@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Registration Exams - UI Automation">
+    <parameter name="url" value="https://10.11.10.13:5115"/>
+
+    <listeners>
+        <listener class-name="commons.MethodListener"/>
+        <listener class-name="reportConfig.AllureTestListener"/>
+    </listeners>
+
+    <test name="Run on Chrome" preserve-order="true">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class
+                    name="Login.Login_Main_Flow"/>
+        </classes>
+    </test>
+
+</suite>
