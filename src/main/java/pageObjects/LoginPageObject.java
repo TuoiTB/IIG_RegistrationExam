@@ -27,4 +27,9 @@ public class LoginPageObject extends BasePage {
         waitForListElementVisible(driver, LoginPageUI.PASS_TEXTBOX);
         sendkeyToElement(driver,LoginPageUI.PASS_TEXTBOX, valueToSend);
     }
+    @Step("Verify login error message")
+    public boolean isLoginErrorMessageDisplayed() {
+        waitForElementVisible(driver, LoginPageUI.ERROR_MESSAGE);
+        return isElementDisplayed(driver, LoginPageUI.ERROR_MESSAGE);
+    }
 }

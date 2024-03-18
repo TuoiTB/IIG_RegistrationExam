@@ -22,4 +22,14 @@ public class DashBoardPageObject extends BasePage {
         waitForElementClickable(driver, DashBoardPageUI.LOGIN_IMG);
         clickToElement(driver, DashBoardPageUI.LOGIN_IMG);
     }
+    @Step("Click to Advanced button")
+    public void clickToAdvancedButton(){
+        waitForElementClickable(driver, DashBoardPageUI.ADVANCE_BUTTON);
+        clickToElement(driver, DashBoardPageUI.ADVANCE_BUTTON);
+    }
+    @Step("Click to Proceed link")
+    public void clickToProceedLink(){
+        waitForElementClickable(driver, DashBoardPageUI.PROCEED_LINK);
+        clickToElement(driver, DashBoardPageUI.PROCEED_LINK);
+    }
 }

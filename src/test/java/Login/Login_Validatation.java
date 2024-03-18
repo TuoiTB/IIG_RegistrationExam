@@ -15,12 +15,11 @@ import pageObjects.PageGeneratorManager;
 
 @Epic("Login")
 @Feature("Login")
-public class Login_Main_Flow extends BaseTest {
+public class Login_Validatation extends BaseTest {
     private WebDriver driver;
     HomePageObject homePage;
     LoginPageObject loginPage;
     DashBoardPageObject dashBoardPage;
-    public static String userName, password;
 
     @Parameters({"browser", "url"})
     @BeforeClass
@@ -32,17 +31,42 @@ public class Login_Main_Flow extends BaseTest {
         dashBoardPage.clickToLoginButton();
         dashBoardPage.clickToLoginImage();
         loginPage = PageGeneratorManager.getLoginPage(driver);
-        userName = "dvtest20@yopmail.com";
-        password = "Tt@123456";
+
     }
     @Test(priority = 1)
-    public void Login_With_All_Valid_Data() {
-        loginPage.inputToUserName(userName);
-        loginPage.inputToPassword(password);
+    public void Login_With_Empty_Data() {
         loginPage.clickToContinueButton();
-        homePage = PageGeneratorManager.getHomePage(driver);
-        verifyTrue(homePage.isAccountDisplayed(userName));
+
     }
+    @Test(priority = 2)
+    public void Login_With_Invalid_Email() {
+        loginPage.inputToUserName("Tuoi.tb");
+        loginPage.clickToContinueButton();
+        verifyTrue(loginPage.isLoginErrorMessageDisplayed());
+    }
+    @Test(priority = 3)
+    public void Login_With_Email_Not_Register() {
+        loginPage.inputToUserName("123@gmail.com");
+        loginPage.clickToContinueButton();
+       // loginPage.sleepInSecond(2);
+        verifyTrue(loginPage.isLoginErrorMessageDisplayed());
+    }
+    @Test(priority = 4)
+    public void Login_With_Valid_Email_And_Blank_Password() {
+        loginPage.inputToUserName("dvtest20@yopmail.com");
+        loginPage.clickToContinueButton();
+       // loginPage.sleepInSecond(2);
+        verifyTrue(loginPage.isLoginErrorMessageDisplayed());
+    }
+    @Test(priority = 5)
+    public void Login_With_Valid_Email_And_Invalid_Password() {
+        loginPage.inputToUserName("dvtest20@yopmail.com");
+        loginPage.inputToPassword("1234");
+        loginPage.clickToContinueButton();
+       // loginPage.sleepInSecond(2);
+        verifyTrue(loginPage.isLoginErrorMessageDisplayed());
+    }
+
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
