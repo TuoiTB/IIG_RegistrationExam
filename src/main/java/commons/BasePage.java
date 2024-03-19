@@ -17,6 +17,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import  org.apache.logging.log4j.Logger;
+import  org.apache.logging.log4j.LogManager;
 
 
 public class BasePage {
@@ -263,13 +265,11 @@ public class BasePage {
 						break;
 					}
 				}
+				break;
 			}
 		}
 	}
-	
-	
-	
-	
+
 	public String getElementText(WebDriver driver, String locator) {
 		return getElement(driver, locator).getText();
 	}

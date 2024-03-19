@@ -44,7 +44,7 @@ public class Registration_Toeic_Exam_Main_Flow extends BaseTest {
         place_idCard = "HD";
         address = "61 Phùng Chí Kiên";
         phoneNumber = "0987654321";
-        email = "Tubaotuoi@gmail.com";
+        email = "automationTest@gmail.com";
         addressWork = "Trung Yên plaza";
         dateOfBirth = "30/05/1999";
         dateOfIdCard = "15/06/2022";
@@ -55,21 +55,21 @@ public class Registration_Toeic_Exam_Main_Flow extends BaseTest {
     @Test(priority = 1)
     public void Registration_With_Identification_card() {
         homePage.chooseItemInRegistrationExamDropdown("Bài thi Tiếng Anh","TOEIC");
-        homePage.waitingForLoadingIconInvisbile();
+        //homePage.waitingForLoadingIconInvisbile();
         registrationToeicExamPage = PageGeneratorManager.getRegistrationToeicExamPage(driver);
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Họ và tên thí sinh",fullName);
-        registrationToeicExamPage.inputToDynamicDateByLabel("Ngày sinh", dateOfBirth);
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(fullName, "Họ và tên thí sinh");
+        registrationToeicExamPage.inputToDynamicDateByLabel(dateOfBirth, "Ngày sinh");
         registrationToeicExamPage.chooseItemInDefaultDropdownByLabel("Chứng minh thư nhân dân","Loại giấy tờ đăng ký dự thi");
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Chứng minh thư nhân dân",idCard);
-        registrationToeicExamPage.inputToDynamicDateByLabel("Ngày cấp",dateOfIdCard);
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Nơi cấp",place_idCard);
-        registrationToeicExamPage.chooseItemInDefaultDropdownByLabel("Tỉnh/Thành phố",province);
-        registrationToeicExamPage.chooseItemInDefaultDropdownByLabel("Quận/Huyện",district);
-        registrationToeicExamPage.chooseItemInDefaultDropdownByLabel("Xã/Phường",ward);
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Số nhà, đường/phố",address);
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Số điện thoại ",phoneNumber);
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Email",email);
-        registrationToeicExamPage.inputToDynamicTextboxByLabel("Địa chỉ làm việc",addressWork);
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(idCard,"Chứng minh thư nhân dân");
+        registrationToeicExamPage.inputToDynamicDateByLabel(dateOfIdCard,"Ngày cấp");
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(place_idCard,"Nơi cấp");
+        registrationToeicExamPage.chooseItemInDefaultDropdownByLabel(province,"Tỉnh/Thành phố");
+        registrationToeicExamPage.chooseItemInDefaultDropdownByLabel(district,"Quận/Huyện");
+        registrationToeicExamPage.chooseItemInDefaultDropdownByLabel(ward,"Xã/Phường");
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(address,"Số nhà, đường/phố");
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(phoneNumber,"Số điện thoại ");
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(email, "Email");
+        registrationToeicExamPage.inputToDynamicTextboxByLabel(addressWork,"Địa chỉ làm việc");
     }
     @Test(priority = 2)
     public void Registration_With_Citizen_Identification_card() {
