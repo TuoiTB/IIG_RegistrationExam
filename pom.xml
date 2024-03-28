@@ -25,6 +25,8 @@
         <allure.version>2.24.0</allure.version>
         <faker.version>1.0.1</faker.version>
         <log4j.version>2.19.0</log4j.version>
+        <jdbc.driver.version>12.6.1.jre11</jdbc.driver.version>
+        <jtds.driver.version>1.3.1</jtds.driver.version>
     </properties>
     <!--  Quản lí thư viện  -->
     <dependencies>
@@ -111,6 +113,16 @@
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${jdbc.driver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>${jtds.driver.version}</version>
         </dependency>
     </dependencies>
     <!--  Compiler/ Run Test  -->

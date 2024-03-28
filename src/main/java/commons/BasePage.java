@@ -17,8 +17,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import  org.apache.logging.log4j.Logger;
-import  org.apache.logging.log4j.LogManager;
 
 
 public class BasePage {
@@ -211,20 +209,18 @@ public class BasePage {
 		getElement(driver, getDynamicLocator(locator, restParams)).sendKeys(valueToSend);
 	}
 	
-	
-	
 	public void selectDropdown(WebDriver driver, String locator, String itemText ) {
 		new Select(getElement(driver, locator)).selectByVisibleText(itemText);
 	}
-	
 	public void selectDropdown(WebDriver driver, String locator, String itemText, String...restParams ) {
 		new Select(getElement(driver, getDynamicLocator(locator, restParams))).selectByVisibleText(itemText);
 	}
-	
+	public void selectRandomDropdown(WebDriver driver, String locator) {
+		new Select(getElement(driver, locator)).selectByIndex(0);
+	}
 	public String getFirstSelectedOptionText(WebDriver driver, String locator) {
 		return new Select(getElement(driver, locator)).getFirstSelectedOption().getText();
 	}
-	
 	public boolean isDropdownMultiple(WebDriver driver, String locator) {
 		return new Select(getElement(driver, locator)).isMultiple();
 	}
@@ -512,8 +508,7 @@ public class BasePage {
 		};
 		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
-	
-	
+
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
 	}
@@ -551,7 +546,21 @@ public class BasePage {
 	public Alert waitForAlertPresence(WebDriver driver) {
 		return new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.alertIsPresent());
 	}
-	
+	public void uploadMultipleFiles(WebDriver driver, String locator, String...fileNames) {
+		String filePath = System.getProperty("user.dir") + "\\uploadFiles\\";
+		String fullFileName = "";
+		for(String file : fileNames) {
+			fullFileName = fullFileName + filePath + file + "\n";
+		}
+		fullFileName = fullFileName.trim();
+		getElement(driver, locator).sendKeys(fullFileName);
+	}
+	public void uploadSingleFile(WebDriver driver, String locator, String valueToSend, String... restParams) {
+		getElement(driver, getDynamicLocator(locator, restParams)).sendKeys(valueToSend);
+	}
+	public void uploadSingleFile(WebDriver driver, String locator, String valueToSend) {
+		getElement(driver, locator).sendKeys(valueToSend);
+	}
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 	private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
 }
