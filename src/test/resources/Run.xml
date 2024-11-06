@@ -11,12 +11,12 @@
     <test name="Run on Chrome" preserve-order="true">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <!--<class
-                    name="Login.Login_Main_Flow"/>
             <class
+                    name="Login.Login_Main_Flow"/>
+            <!--<class
                     name="Login.Login_Validatation"/>-->
-            <class name="Registration_Toeic_Exam.Registration_Toeic_Exam_Main_Flow"/>
+            <class
+                    name="Registration_Toeic_Exam.Registration_Toeic_Exam_Main_Flow"/>
         </classes>
     </test>
-
 </suite>

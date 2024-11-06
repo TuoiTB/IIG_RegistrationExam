@@ -108,7 +108,7 @@ public class Registration_Toeic_Exam_Main_Flow extends BaseTest {
         log.info("Step 19: Choose place of registration");
         registrationToeicExamPage.chooseItemInDefaultDropdownById("Văn phòng Trung Yên - HN","PlaceOfRegistration");
         log.info("Step 20: Choose submit time");
-        registrationToeicExamPage.chooseItemInDefaultDropdownById("30/03/2024 09:00 - 10:00","SubmitsionTime");
+        registrationToeicExamPage.chooseItemInDefaultDropdownById("13/06/2024 09:00 - 10:00","SubmitsionTime");
         log.info("Step 21: Check to agreement checkbox");
         registrationToeicExamPage.checkToAgreeCheckbox();
 
@@ -167,7 +167,7 @@ public class Registration_Toeic_Exam_Main_Flow extends BaseTest {
         log.info("Step 19: Choose place of registration");
         registrationToeicExamPage.chooseItemInDefaultDropdownById("Văn phòng Trung Yên - HN","PlaceOfRegistration");
         log.info("Step 20: Choose submit time");
-        registrationToeicExamPage.chooseItemInDefaultDropdownById("30/03/2024 09:00 - 10:00","SubmitsionTime");
+        registrationToeicExamPage.chooseItemInDefaultDropdownById("13/06/2024 09:00 - 10:00","SubmitsionTime");
         log.info("Step 21: Check to agreement checkbox");
         registrationToeicExamPage.checkToAgreeCheckbox();
 
