@@ -3,6 +3,7 @@ package test.interview;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.auth.oauth2.GoogleCredentials;
+import  com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.model.*;
 import com.google.api.client.http.HttpTransport;
@@ -22,7 +23,7 @@ import java.util.List;
 public class SaveDataFromSeleniumToGG {
 
     private static Sheets sheetsService;
-    private static String SPREADSHEET_ID = "Sheet1"; // Thay bằng ID của Google Sheet
+    private static String SPREADSHEET_ID = "1Wg47cqdNHkQNPdgKkosTc4nmzyE4oon0AuQGpVkQcFk"; // Thay bằng ID của Google Sheet
     private static String RANGE = "Sheet1!A1"; // Vị trí bắt đầu
 
     public static void main(String[] args) throws IOException {
@@ -37,6 +38,7 @@ public class SaveDataFromSeleniumToGG {
             String itemText = tempItem.getText();
             listText.add(itemText);
         }
+        System.out.println(listText);
 
         //------------------------
         // Google Sheets API
